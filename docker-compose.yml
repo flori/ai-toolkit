@@ -1,8 +1,7 @@
-version: "3.8"
-
 services:
   ai-toolkit:
     image: ostris/aitoolkit:latest
+    pull_policy: always
     restart: unless-stopped
     ports:
       - "8675:8675"
@@ -16,6 +15,7 @@ services:
       - AI_TOOLKIT_AUTH=${AI_TOOLKIT_AUTH:-password}
       - NODE_ENV=production
       - TZ=UTC
+    shm_size: 32gb
     deploy:
       resources:
         reservations:
