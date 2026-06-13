@@ -66,5 +66,11 @@ echo "Pod Started"
 
 setup_ssh
 export_env_vars
+
+cd /app/ai-toolkit/ui
+
+echo -n "Preparing AI Toolkit Database..."
+npx prisma db push --skip-generate
+echo "Done."
 echo "Starting AI Toolkit UI..."
-cd /app/ai-toolkit/ui && npm run start 
+exec npm run start 
